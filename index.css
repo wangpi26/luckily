@@ -1,0 +1,748 @@
+    * {
+        margin: 0px;
+        /* overflow-x: hidden; */
+        /* overflow-y: auto; */
+    }
+    body{
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .sknow {
+        width: 200%;
+        height: 98vh;
+        position: absolute;
+    }
+    .Wrapper {
+    position: absolute;
+    top: 0px;
+    width: 200%;
+    height: 98vh;
+    overflow: hidden; 
+
+}
+    
+    .header {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 150px;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+    
+    .border {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /* background-color: #fff; */
+    }
+    
+    .left {
+        /* position: absolute; */
+        top: 150px;
+        left: 300px;
+        /* background-color: black; */
+        /* z-index: 99; */
+        /* left: 200px; */
+    }
+    
+    .right {
+        /* position: absolute; */
+        right: 350px;
+    }
+    
+    .header ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    /* 上方元宝样式 */
+    /* 给整个李标签整理设置属性 */
+    
+    .header ul li {
+        width: 140px;
+        height: 200px;
+        display: inline-block;
+        list-style: none;
+        position: relative;
+        top: 0px;
+        left: 4px;
+        margin: 0px 0px 0px 0px;
+    }
+    /* 给整个i标签设置属性 */
+    
+    .header ul li i {
+        width: 2px;
+        position: relative;
+        left: 53px;
+        background-color: rgb(215 217 14);
+        z-index: 2;
+        display: inline-block;
+    }
+    /* 给整个图片设置属性 */
+    
+    .header ul li img {
+        margin: 0px;
+        position: relative;
+    }
+    /* 分别给每个 i 设置不同的高度和长度，实现元宝悬停高低不同的效果 */
+    
+    .header li:nth-child(1) i {
+        top: 0px;
+        left: 78px;
+        height: 96px;
+    }
+    
+    .header li:nth-child(2) i {
+        top: 0px;
+        height: 59px;
+    }
+    
+    .header li:nth-child(3) i {
+        top: -2px;
+        height: 96px;
+    }
+    
+    .header li:nth-child(4) i {
+        top: 0px;
+        height: 96px;
+    }
+    
+    .header li:nth-child(5) i {
+        top: -5px;
+        height: 91px;
+    }
+    
+    .header li:nth-child(6) i {
+        top: 0px;
+        height: 96px;
+    }
+    
+    .header li:nth-child(7) i {
+        top: -17px;
+        height: 78px;
+    }
+    
+    .header li:nth-child(8) i {
+        top: 0px;
+        height: 96px;
+    }
+    
+    .header li:nth-child(9) i {
+        top: -19px;
+        height: 77px;
+    }
+    
+    .header li:nth-child(10) i {
+        top: -4px;
+        height: 91px;
+    }
+    /* 分别给每个 img 设置高度，实现元宝悬停高低不同、大小不一的效果 */
+    
+    .header li:nth-child(1) img {
+        width: 56px;
+        height: 74px;
+        top: 30px;
+        left: 43px;
+    }
+    
+    .header li:nth-child(2) img {
+        width: 63px;
+        height: 90px;
+        top: 40px;
+        left: 9px;
+    }
+    
+    .header li:nth-child(3) img {
+        width: 63px;
+        height: 75px;
+        top: 30px;
+        left: 7px;
+    }
+    
+    .header li:nth-child(4) img {
+        width: 78px;
+        height: 94px;
+        top: 30px;
+    }
+    
+    .header li:nth-child(5) img {
+        width: 54px;
+        height: 67px;
+        top: 30px;
+        left: 10px;
+    }
+    
+    .header li:nth-child(6) img {
+        width: 77px;
+        height: 77px;
+        top: 30px;
+        left: 10px;
+    }
+    
+    .header li:nth-child(7) img {
+        width: 63px;
+        height: 84px;
+        top: 20px;
+        left: 10px;
+    }
+    
+    .header li:nth-child(8) img {
+        width: 78px;
+        height: 90px;
+        top: 30px;
+    }
+    
+    .header li:nth-child(9) img {
+        width: 63px;
+        height: 77px;
+        top: 20px;
+        left: 9px;
+    }
+    
+    .header li:nth-child(10) img {
+        width: 63px;
+        height: 90px;
+        top: 30px;
+    }
+    /* ==================  抽奖程序部分 */
+    
+    .lucky {
+        width: 500px;
+        height: 500px;
+        margin-left: 25px;
+        border: 2px solid transparent;
+        position: absolute;
+        right: 10%;
+        top: 30%;
+    }
+    /* 视频盒子 */
+    
+    .video {
+        position: absolute;
+        left: 25%;
+        width: 200px;
+        height: 200px;
+        /* border: 2px solid red; */
+    }
+    
+    .ballBox {
+        position: relative;
+        width: 190px;
+        height: 192px;
+        /* padding-top: 10px; */
+        /* padding-left: 10px; */
+        /* background-color: aqua; */
+        /* /* margin-top: -5px; */
+        /* margin-left: 0px; */
+    }
+    
+    .video .kuang {
+        position: absolute;
+        /* width: 112%;
+    height: 140%; */
+        height: 275px;
+        width: 220px;
+        top: -37px;
+        left: -12px;
+    }
+    
+    .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        /* background-color: red; */
+        border-radius: 50%;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 30px;
+        /* z-index: 999; */
+    }
+    
+    .ball:nth-child(1) {
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(2) {
+        left: 30%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(3) {
+        left: 60%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(4) {
+        top: 30%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(5) {
+        top: 30%;
+        left: 30%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(6) {
+        top: 30%;
+        left: 60%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(7) {
+        top: 60%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(8) {
+        top: 60%;
+        left: 30%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    
+    .ball:nth-child(9) {
+        top: 60%;
+        left: 60%;
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: cover;
+    }
+    /* 管子 */
+    
+    .tube {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        /* border: 2px solid red; */
+        border-bottom: 0px;
+        left: 40%;
+        top: 40%;
+    }
+    
+    .lamp {
+        position: absolute;
+        left: 35%;
+        top: 37%;
+        width: 100px;
+        height: 120px;
+    }
+    /* 管子里的小球 */
+    
+    .tube span {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        /* background-color: red; */
+        background: url(./pic/ball7.png) no-repeat;
+        background-size: 100%;
+        text-align: center;
+        font-size: 30px;
+        /* text-shadow: blue 3px 3px 3px; */
+        z-index: 2;
+    }
+    /* 下面装掉落小球的盒子 */
+    
+    .tsBox {
+        position: absolute;
+        width: 200px;
+        height: 120px;
+        /* border: 2px solid red; */
+        border-top: 0px;
+        left: 36%;
+        top: 55%;
+    }
+    
+    .tsBox .pool {
+        position: absolute;
+        z-index: 0;
+        width: 110%;
+        height: 130%;
+    }
+    /* 放个十百的盒子 */
+    
+    .money {
+        margin-left: 40%;
+        margin-top: -18%;
+        display: flex;
+    }
+    /* 个十百 */
+    
+    .money p {
+        font-size: 30px;
+        margin-left: 25px;
+    }
+    /* 提示信息 */
+    
+    .keypress {
+        position: relative;
+        margin-left: 30%;
+        margin-top: 92%;
+        width: 200px;
+        height: 100px;
+        font-size: 18px;
+        color: #ffffff;
+        /* background-image: url(../抽奖活动/pic/千库网_科技按钮_元素编号12576764.png); */
+        background-size: 100% 100%;
+        z-index: 2;
+    }
+    
+    #img {
+        position: absolute;
+        left: -30px;
+        top: -60px;
+        z-index: -1;
+    }
+    
+    #img_2 {
+        position: absolute;
+        left: 170px;
+        top: -60px;
+        animation: img_2 1s infinite;
+    }
+    
+    @keyframes img_2 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+    }
+    
+    #message {
+        width: 300px;
+        height: 500px;
+        /* margin-left: 0px; */
+        /* border: 2px solid red; */
+        position: absolute;
+        left: 15%;
+        top: 30%;
+        background-image: url(../抽奖活动/pic/金钱背景二.png);
+        background-size: 100% 100%;
+    }
+    
+    #bonus {
+        position: absolute;
+        left: 20%;
+        top: 10%;
+        color: black;
+        font-size: 30px;
+        font-weight: 800;
+    }
+    
+    #total {
+        position: absolute;
+        left: 20%;
+        bottom: 20px;
+    }
+    
+    .active {
+        position: relative;
+        font-weight: 600;
+        left: 20%;
+        top: 25%;
+        /* font-size: 42px; */
+        color:rgba(255, 0, 0, 0.8);
+        text-shadow: black 5px 5px 5px;
+        font-size: 2.2em;
+    }
+    /* 全屏雪花 */
+    
+    .snow {
+        /* background-color: #000000; */
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 999;
+        background: url(./pic/硬币-2.png) no-repeat;
+        background-size: 100%;
+    }
+    
+    .motel {
+        position: absolute;
+        width: 500px;
+        height: 200px;
+        /* background-color: saddlebrown; */
+        background: url(./pic/motel.png) no-repeat;
+        background-size: 100% 95%;
+        display: none;
+        top: 382px;
+        /* left: 200px; */
+        animation: motel 2.5s;
+        z-index: 2;
+    }
+    /* 设置 motel边框 */
+    .big-border{
+width: 500px;
+height: 500px;
+position: absolute;
+    }
+    #motel_border {
+        display: none;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        top:39%;
+        left: -3%;
+        z-index: 1;
+        animation: motel_border 2s ease;
+        /* background-color: red; */
+        
+    }
+    
+    #prompt {
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        /* background-color: violet; */
+        width: 300px;
+        height: 300px;
+        background-image: url(../抽奖活动/pic/幸运大抽奖.png);
+        background-size: 100% 100%;
+    }
+    
+    .arrow-l {
+        position: absolute;
+        top: 65%;
+        transform: translateX(180px);
+        width: 150px;
+        height: 150px;
+        background: url(./pic/左箭头1.0.png) no-repeat;
+        background-size: 100%;
+        z-index: 100;
+    }
+    
+    @keyframes motel {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.7);
+        }
+        0% {
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes motel_border {
+        0% {
+            transform: scale(0)
+        }
+        50% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1)
+        }
+    }
+    
+    .motel>.submit {
+        position: absolute;
+        top: 80%;
+        left: 40%;
+    }
+    
+    .motel>.sum {
+        position: absolute;
+        left: 20%;
+        top: 40%;
+        font-size: 25px;
+        color: #ffffff;
+    }
+    /* 动态元宝 */
+    
+    .group1,
+    .group3,
+    .group5,
+    .group7,
+    .group9 {
+        animation: myfirst 10s infinite ease;
+    }
+    
+    @keyframes myfirst {
+        0% {
+            top: -35px;
+        }
+        25% {
+            top: 0;
+        }
+        50% {
+            top: -35px;
+        }
+        75% {
+            top: -70px;
+        }
+        100% {
+            top: -35px;
+        }
+    }
+    
+    .group2,
+    .group4,
+    .group6,
+    .group8,
+    .group10 {
+        animation: mysecond 10s infinite;
+    }
+    
+    @keyframes mysecond {
+        0% {
+            top: -25px;
+        }
+        25% {
+            top: -50px;
+        }
+        50% {
+            top: -25px;
+        }
+        75% {
+            top: 0;
+        }
+        100% {
+            top: -25px;
+        }
+    }
+    /* 背景 */
+    
+    .bg {
+        width: 100%;
+        height: 100vh;
+        background-image: url(../抽奖活动/pic/img-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* position: relative; */
+        left: 0;
+        right: 0;
+        margin: 0px auto;
+        /* overflow: hidden;s */
+    }
+    .big_contain {
+        display: flex;
+        justify-content: center;
+        /* position: relative; */
+    }
+     .curtian {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        /* overflow: hidden; */
+        
+    } 
+    
+    .curtian img {
+        width: 50%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        z-index: 2;
+        transition: ease-in;
+    }
+    
+    .left-curtian {  
+        position: absolute;
+        overflow: hidden;
+        left: -780px;
+        top: 0;
+        transition: ease-in;
+        animation: left_cur 2s ease-in ;
+    }  
+    @keyframes left_cur {
+        0% {
+             left : -200px ;
+        }
+        100% {
+           left: -780px;
+        } 
+    }
+    .right-curtian 
+    {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        right: -780px;
+        transition: ease-in;
+        animation: right_cur 2s ease-in ;
+    }
+    
+    @keyframes right_cur {
+        0% {
+             right : -200px ;
+        }
+        100% {
+           right: -780px;
+        } 
+    }
+    
+    .log-flex {
+        width: 100%;
+        height: 0%;
+        /* display: flex;
+    justify-content: center; */
+    }
+    
+    .logo-box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 90%;
+        /* overflow: hidden; */
+        position: absolute;
+        top: 5%;
+        z-index: 0;
+        /* background-color: red; */
+        /*  */
+    }
+    
+    .logo {
+    /* background-color: blue; */
+        position: absolute;
+        width: 1560px;
+        height: 850px;
+        margin-top: 80px;
+        opacity: 1;
+        /* top: -8%;
+        left: -1%; */
+
+        /* animation-name: logo;
+    animation-duration: 2s;
+    transition: ease-in; */
+        animation: logo 2s;
+        /* animation: logo_rotate 2s ease-in; */
+        transform-origin: 50% 42%;
+    }
+    
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            transform: scale(0) rotate(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) rotate(1440deg);
+        }
+    }
+    /* @keyframes logo_rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+} */

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖程序</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <style>
+        * {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="bg"> -->
+    <!-- 雪花 -->
+    <div class="sknow">
+        <div class="Wrapper">
+
+        </div>
+    </div>
+
+    <!-- 整体一个大盒子，用来加背景图片 -->
+    <div class="bg">
+        <!-- header内容：动态元宝 -->
+        <div class="border">
+            <div class="header">
+            
+                </ul>
+            </div> -->
+            <!-- 左面内容：显示每次抽奖情况 -->
+
+            <div class="left">
+                <!-- 中奖信息 -->
+                <div id="message">
+                    <div id="bonus">奖金合计</div>
+                    <div id="total"></div>
+                </div>
+            </div>
+            <!-- 右面内容：显示抽奖 -->
+            <div class="right">
+                <div class="lucky">
+                    <!-- 上面视频盒子 -->
+                    <div class="video">
+                        <img src="./pic/小球框.png" class="kuang">
+                        <div class="ballBox">
+                            <div class="ball">1</div>
+                            <div class="ball">2</div>
+                            <div class="ball">3</div>
+                            <div class="ball">4</div>
+                            <div class="ball">5</div>
+                            <div class="ball">6</div>
+                            <div class="ball">7</div>
+                            <div class="ball">8</div>
+                            <div class="ball">9</div>
+                        </div>
+                    </div>
+                    <!-- 掉落球的管 -->
+                    <img src="./pic/灯管2.0.png" alt="" class="lamp">
+                    <div class="tube">
+
+                    </div>
+                    <!-- 装三个球的透明盒子 -->
+                    <div class="tsBox">
+                        <img src="./pic/水池.png" alt="" class="pool">
+                    </div>
+                    <!-- 提示信息 -->
+                    <div class="keypress">
+                        <img id="img" src="../抽奖活动/pic/千库网_科技按钮_元素编号12576764.png" alt="" width="300px" height="150px">
+                        按下键盘空格键进行抽奖
+                        <img id="img_2" src="../抽奖活动/pic/pointer.png" alt="" width="120px">
+                    </div>
+                </div>
+            </div>
+            <div class="motel">
+                <button class="submit btn btn-danger">回车提交</button>
+                <p class="sum" style="color:rgb(206, 206, 28); text-shadow: black 6px 6px 6px; font-size: 3em; font-weight: 800;">
+                    <!-- rgb(206, 206, 28) -->
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="big_contain">
+        <div class="curtian">
+            <img class="left-curtian" src='../抽奖活动/pic/left-curtian.png'>
+            <img class="right-curtian" src="../抽奖活动/pic/right-curtian.png">
+        </div>
+    </div>
+    <div id="prompt">
+    </div>
+    <div class="">
+        <div class="logo-box">
+            <img class="logo" src="../抽奖活动/pic/logo.png">
+            <div class="big-border">
+                <img id="motel_border" src="../抽奖活动/pic/motel_border.png" alt="">
+            </div>
+           
+        </div>
+    </div>
+    <script>
+        $(function () {
+            //===================== 九个小球动的函数方法
+            var ball = document.querySelectorAll('.ball');
+            var vallBox = document.querySelector('.ballBox')
+            // 小球停止移动后的惯性停止
+            var ballX1 = ball[0].offsetLeft;
+            var ballY1 = ball[0].offsetTop;
+            var ballX2 = ball[1].offsetLeft;
+            var ballY2 = ball[1].offsetTop;
+            var ballX3 = ball[2].offsetLeft;
+            var ballY3 = ball[2].offsetTop;
+            var ballX4 = ball[3].offsetLeft;
+            var ballY4 = ball[3].offsetTop;
+            var ballX5 = ball[4].offsetLeft;
+            var ballY5 = ball[4].offsetTop;
+            var ballX6 = ball[5].offsetLeft;
+            var ballY6 = ball[5].offsetTop;
+            var ballX7 = ball[6].offsetLeft;
+            var ballY7 = ball[6].offsetTop;
+            var ballX8 = ball[7].offsetLeft;
+            var ballY8 = ball[7].offsetTop;
+            var ballX9 = ball[8].offsetLeft;
+            var ballY9 = ball[8].offsetTop;
+            var directX1 = 1;
+            var directY1 = 1;
+            var directX2 = 1;
+            var directY2 = 1;
+            var directX3 = 1;
+            var directY3 = 1;
+            var directX4 = 1;
+            var directY4 = 1;
+            var directX5 = 1;
+            var directY5 = 1;
+            var directX6 = 1;
+            var directY6 = 1;
+            var directX7 = 1;
+            var directY7 = 1;
+            var directX8 = 1;
+            var directY8 = 1;
+            var directX9 = 1;
+            var directY9 = 1;
+
+            function ballMove() {
+                ballX1 += 2 * directX1;
+                ballY1 += 2 * directY1;
+                ballX2 += 3 * directX2;
+                ballY2 += 3 * directY2;
+                ballX3 += 2 * directX3;
+                ballY3 += 2 * directY3;
+                ballX4 += 3 * directX4;
+                ballY4 += 3 * directY4;
+                ballX5 += 2 * directX5;
+                ballY5 += 2 * directY5;
+                ballX6 += 3 * directX6;
+                ballY6 += 3 * directY6;
+                ballX7 += 2 * directX7;
+                ballY7 += 2 * directY7;
+                ballX8 += 3 * directX8;
+                ballY8 += 3 * directY8;
+                ballX9 += 2 * directX9;
+                ballY9 += 2 * directY9;
+
+                ball[0].style.top = ballY1 + 'px';
+                ball[0].style.left = ballX1 + 'px';
+                ball[1].style.top = ballY2 + 'px';
+                ball[1].style.left = ballX2 + 'px';
+                ball[2].style.top = ballY3 + 'px';
+                ball[2].style.left = ballX3 + 'px';
+                ball[3].style.top = ballY4 + 'px';
+                ball[3].style.left = ballX4 + 'px';
+                ball[4].style.top = ballY5 + 'px';
+                ball[4].style.left = ballX5 + 'px';
+                ball[5].style.top = ballY6 + 'px';
+                ball[5].style.left = ballX6 + 'px';
+                ball[6].style.top = ballY7 + 'px';
+                ball[6].style.left = ballX7 + 'px';
+                ball[7].style.top = ballY8 + 'px';
+                ball[7].style.left = ballX8 + 'px';
+                ball[8].style.top = ballY9 + 'px';
+                ball[8].style.left = ballX9 + 'px';
+
+                //判断转向
+                if (ballX1 + ball[0].offsetWidth >= vallBox.offsetWidth || ballX1 <= 0) {
+                    directX1 = -directX1;
+                }
+                if (ballY1 + ball[0].offsetHeight >= vallBox.offsetHeight || ballY1 <= 0) {
+                    directY1 = -directY1;
+                }
+                if (ballX2 + ball[1].offsetWidth >= vallBox.offsetWidth || ballX2 <= 0) {
+                    directX2 = -directX2;
+                }
+                if (ballY2 + ball[1].offsetHeight >= vallBox.offsetHeight || ballY2 <= 0) {
+                    directY2 = -directY2;
+                }
+                if (ballX3 + ball[2].offsetWidth >= vallBox.offsetWidth || ballX3 <= 0) {
+                    directX3 = -directX3;
+                }
+                if (ballY3 + ball[2].offsetHeight >= vallBox.offsetHeight || ballY3 <= 0) {
+                    directY3 = -directY3;
+                }
+                if (ballX4 + ball[3].offsetWidth >= vallBox.offsetWidth || ballX4 <= 0) {
+                    directX4 = -directX4;
+                }
+                if (ballY4 + ball[3].offsetHeight >= vallBox.offsetHeight || ballY4 <= 0) {
+                    directY4 = -directY4;
+                }
+                if (ballX5 + ball[4].offsetWidth >= vallBox.offsetWidth || ballX5 <= 0) {
+                    directX5 = -directX5;
+                }
+                if (ballY5 + ball[4].offsetHeight >= vallBox.offsetHeight || ballY5 <= 0) {
+                    directY5 = -directY5;
+                }
+                if (ballX6 + ball[5].offsetWidth >= vallBox.offsetWidth || ballX6 <= 0) {
+                    directX6 = -directX6;
+                }
+                if (ballY6 + ball[5].offsetHeight >= vallBox.offsetHeight || ballY6 <= 0) {
+                    directY6 = -directY6;
+                }
+                if (ballX7 + ball[6].offsetWidth >= vallBox.offsetWidth || ballX7 <= 0) {
+                    directX7 = -directX7;
+                }
+                if (ballY7 + ball[6].offsetHeight >= vallBox.offsetHeight || ballY7 <= 0) {
+                    directY7 = -directY7;
+                }
+                if (ballX8 + ball[7].offsetWidth >= vallBox.offsetWidth || ballX8 <= 0) {
+                    directX8 = -directX8;
+                }
+                if (ballY8 + ball[7].offsetHeight >= vallBox.offsetHeight || ballY8 <= 0) {
+                    directY8 = -directY8;
+                }
+                if (ballX9 + ball[8].offsetWidth >= vallBox.offsetWidth || ballX9 <= 0) {
+                    directX9 = -directX9;
+                }
+                if (ballY9 + ball[8].offsetHeight >= vallBox.offsetHeight || ballY9 <= 0) {
+                    directY9 = -directY9;
+                }
+            }
+            //====================================================== 小球移动封装<完>
+            // 定义每个球出现的数字，其中6和8出现概率较大
+            var arr = ["1", "2", "3", "4", "5", "6", "6", "6", "6", "6", "6", "6", "7", "8", "8", "8", "8", "8", "8",] //共19个数字
+            var timer;
+            //设置分数
+            let score = '';
+            //存放分数
+            let container = [];
+            //存放分数的索引值
+            let index = 0;
+            //合计金额
+            let total = 0;
+            //判断抽奖机中的小球是否运动以及盒子中的小球是否出现
+            let boolean = false;
+            var flag = true;
+            var timerIndex;
+            $(document).on("keydown", function (ev) {
+
+                var random = Math.random() * 19;
+                var random2 = Math.random() * 19;
+                var random3 = Math.random() * 19;
+                rd = parseInt(random);
+                rd2 = parseInt(random2);
+                rd3 = parseInt(random3);
+                console.log(rd);
+                var sum = new Array();
+                for (let i = 0; i < 9; i++) {
+                    sum[i] = arr[rd];
+                    sum[i] = arr[rd2];
+                    sum[i] = arr[rd3];
+                }
+                clearTimeout(timerIndex) //延时器可以写在if里面，也可以写在外面，如果写在外面，必须清理延时器，否则会创建多个延时器，导致flag很快为true，就一直输出1；如果写在里面，想要执行定时器，必须通过if语句，确保了定时器的安全
+                // 点击一次空格，出现三个球
+                if (flag == true) {
+                    flag = false;
+                    if (ev.keyCode == 32) {
+                    // clearInterval(timer);
+                    boolean = !boolean;
+                    if (boolean) {
+                        timer = setInterval(ballMove, 1);
+                        $('.tube').empty();
+                    } else {
+                        // clearInterval(timer);
+                        $('.tube').prepend("<span class='move'>" + arr[rd] + "</span>");
+                        $('.border').prepend("<div class='arrow-l'></div>");
+                        if ($('.tube span').length > 0) {
+                            var i = $('.tube span').length;
+                            $(".tube").children('.move').animate({
+                                top: "+=145px"
+                            }, 300);
+                            // $(".tube").children('.move').css('transform','rotateX(90deg)')
+                            var left = i * 50 - 25;
+                            $(".tube").children('.move').animate({
+                                left: "+=" + left + "px"
+                            }, 300);
+                            $('.tube span').removeClass("move");
+                            score += arr[rd];
+                            $('.arrow-l').animate({
+                                left: "-=600px",
+                                opacity: 0
+                            }, 1000)
+                        }
+                        $('.tube').prepend("<span class='move'>" + arr[rd2] + "</span>");
+                        if ($('.tube span').length > 0) {
+                            var i = $('.tube span').length;
+                            $(".tube").children('.move').animate({
+                                top: "+=145px"
+                            }, 300);
+                            // $(".tube").children('.move').css('transform','rotateX(90deg)')
+                            var left = i * 50 - 25;
+                            $(".tube").children('.move').animate({
+                                left: "+=" + left + "px"
+                            }, 300);
+                            $('.tube span').removeClass("move");
+                            score += arr[rd2];
+                        }
+                        $('.tube').prepend("<span class='move'>" + arr[rd3] + "</span>");
+                        if ($('.tube span').length > 0) {
+                            var i = $('.tube span').length;
+                            $(".tube").children('.move').animate({
+                                top: "+=145px"
+                            }, 300);
+                            // $(".tube").children('.move').css('transform','rotateX(90deg)')
+                            var left = i * 50 - 25;
+                            $(".tube").children('.move').animate({
+                                left: "+=" + left + "px"
+                            }, 300);
+                            $('.tube span').removeClass("move");
+                            score += arr[rd3];
+                        }
+                        setTimeout(function () {
+                            clearInterval(timer);
+                            ball[0].style.top = 10 + 'px';
+                            ball[0].style.left = 10 + 'px';
+                            // console.log(ball[0].style.top);
+                            ball[1].style.top = 10 + 'px';
+                            ball[1].style.left = 67 + 'px';
+                            ball[2].style.top = 10 + 'px';
+                            ball[2].style.left = 124 + 'px';
+                            ball[3].style.top = 67 + 'px';
+                            ball[3].style.left = 10 + 'px';
+                            ball[4].style.top = 67 + 'px';
+                            ball[4].style.left = 67 + 'px';
+                            ball[5].style.top = 67 + 'px';
+                            ball[5].style.left = 124 + 'px';
+                            ball[6].style.top = 124 + 'px';
+                            ball[6].style.left = 10 + 'px';
+                            ball[7].style.top = 124 + 'px';
+                            ball[7].style.left = 67 + 'px';
+                            ball[8].style.top = 124 + 'px';
+                            ball[8].style.left = 124 + 'px';
+                        }, 10)
+                    }
+                    //当三个球都出现后获得其数值
+                    if ($('.tube span').length == 3) {
+                        container.push(score)
+                        console.log("index:" + index);
+                        $('#message').append('<div class="active">' + "第" + (index + 1) + "次：" + container[index] + "元" + '</div>')
+                        total += parseInt(container[index]);
+                        index++;
+                        score = '';
+                    }
+                    // 如果金额大于2000：抽奖结束，祝你生活愉快
+                    if (total > 2000) {
+                        // alert(878);
+                        $('.motel').css('display', 'block');
+                        $('#motel_border').css('display', 'block');
+                        $('.sum').prepend('<p class="sum">总金额为：' + total + '元</p>')
+                        // $('.active').empty();
+                        $('.Wrapper').empty();
+                        setTimeout(function () {
+                            clearInterval(timer);
+                            for (var i = 0; i < 620; i++) {
+                                createSnow();
+                            }
+                            total = 0;
+                            $('#myModal').modal('show');
+                        }, 600)
+                        $(document).off("keydown")
+                        $(document).on("keydown", function (ev) {
+                            if (ev.keyCode == 13) {
+                                window.location.reload();
+                            }
+                        })
+                    }
+                }
+                }               
+                timerIndex = setTimeout(function() {
+                                flag = true;
+                            }, 300)
+            })
+
+            //------------------------制作雪花背景----------------------------
+            //获取屏幕宽高 
+            var windowWidth = window.screen.width * 2;
+            var windowHeight = window.screen.height * 2;
+            //创建雪花
+            function createSnow() {
+                var left = 0;
+                var top = 0;
+                //定义一个初始化随机数,使雪花在屏幕中
+                var left_random = Math.random() * windowWidth;
+                var top_random = Math.random() * windowHeight;
+                var wrapper = document.getElementsByClassName("Wrapper")[0];
+                //创建并添加子元素并设置类的动画属性
+                var div = document.createElement("div");
+                div.className = "snow";
+                div.style.transform = "scale(" + Math.random() + ")";
+                wrapper.appendChild(div);
+                //定时器控制雪花飘落
+                setInterval(function () {
+                    left += 0.3;
+                    top += 0.3;
+                    div.style.left = left_random + left + "px";
+                    div.style.top = top_random + top + "px";
+                    //如果雪花跑到屏幕外面了,让雪花重新返回屏幕顶部
+                    if (left_random + left >= windowWidth) {
+                        left_random = Math.random();
+                        left = 0;
+                    }
+                    if (top_random + top >= windowHeight) {
+                        top_random = Math.random();
+                        top = 0;
+                    }
+                }, 1)
+            }
+        })
+        //----------------------------------背景---------------------------------
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    // 停止计时器
+                    clearInterval(obj.timer);
+                    //回调函数写到定时器结束里面
+                    if (callback) {
+                        //调用函数
+                        callback();
+                    }
+                }
+                //把每次加1的这个步长值改为一个慢慢变小的值   (目标值 - 现在的位置) / 10
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>
